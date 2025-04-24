@@ -3,120 +3,264 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conversor de Medidas</title>
+  <meta name="description" content="Conversor preciso de medidas para comprimento e massa - Converta entre diversas unidades gratuitamente">
+  <title>📏 Conversor de Medidas | Converta Unidades Online</title>
   <style>
+    :root {
+      --primary-color: #4CAF50;
+      --secondary-color: #45a049;
+      --background-light: #ffffff;
+      --text-dark: #333333;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --feature-bg: #f8fff9; /* Nova variável para consistência */
+      --border-radius: 12px; /* Padronização de bordas */
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #000000 0%, #002156 100%);
       min-height: 100vh;
+      margin: 0;
       padding: 20px;
-      color: #000;
+      color: var(--text-dark);
+      line-height: 1.6; /* Melhora a legibilidade */
     }
+
     .container {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
+      background: var(--background-light);
+      padding: 2.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      max-width: 800px; /* Aumentado para melhor layout */
+      margin: 40px auto;
+      position: relative;
     }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+
+    /* Hero Section */
+    .hero-section {
       text-align: center;
+      margin-bottom: 2.5rem;
     }
-    select, input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+
+    .hero-section h1 {
+      font-size: 2.5rem; /* Título mais destacado */
+      margin-bottom: 0.5rem;
     }
-    button {
-      background-color: #007bff;
-      color: white;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
+
+    .tagline {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
-    button:hover {
-      background-color: #0056b3;
+
+    /* Description Section */
+    .description {
+      background: var(--feature-bg);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      margin: 2rem 0;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: var(--shadow);
     }
-    #resultado {
-      margin-top: 20px;
-      font-weight: bold;
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Mais responsivo */
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-card {
+      padding: 1.5rem 1rem;
+      background: var(--feature-bg);
+      border-radius: var(--border-radius);
+      text-align: center;
+      transition: transform 0.3s ease; /* Efeito hover */
+      border: 1px solid rgba(76, 175, 80, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Formulário */
+    .conversion-form {
+      display: grid;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    /* Ajustes de Responsividade */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem;
+        margin: 20px auto;
+      }
+
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Dark Mode Ajustes */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-light: #2d2d2d;
+        --text-dark: #ffffff;
+        --feature-bg: #3d3d3d;
+      }
+
+      .description {
+        border-left-color: var(--secondary-color);
+      }
+
+      .feature-card {
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .tagline {
+        color: #ccc;
+      }
+    }
+
+    /* Mantido do original com ajustes */
+    .ad-container {
+      margin: 25px 0;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: var(--border-radius);
       text-align: center;
     }
 
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #ffffff;
-      }
-      .container {
-        background-color: #1e1e1e;
-        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
-      }
-      input, select {
-        background-color: #2c2c2c;
-        color: white;
-        border: 1px solid #555;
-      }
-      button {
-        background-color: #2196f3;
-      }
-      button:hover {
-        background-color: #0b7dda;
-      }
+    select, input {
+      width: 100%;
+      padding: 14px 18px; /* Maior touch area */
+      border: 2px solid #e0e0e0;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: var(--background-light);
+      color: var(--text-dark);
     }
-  </style>
+
+    button {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding: 16px;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    #resultado {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(76, 175, 80, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+</style>
 </head>
 <body>
   <div class="container">
-    <h1>Conversor de Medidas</h1>
-    <label for="categoria">Categoria:</label>
-    <select id="categoria">
-      <option value="comprimento">Comprimento</option>
-      <option value="massa">Massa</option>
-    </select>
+    <div class="hero-section">
+      <h1>📏 Conversor de Medidas Online</h1>
+      <p class="tagline">Conversão precisa e instantânea para unidades de comprimento e massa</p>
+    </div>
+<!-- O formulário de conversão permanece aqui -->
+    <div class="conversion-form">
+      <label for="categoria">📦 Categoria:</label>
+      <select id="categoria">
+        <option value="comprimento">Comprimento</option>
+        <option value="massa">Massa</option>
+      </select>
 
-    <label for="de">Converter de:</label>
-    <select id="de"></select>
+      <div class="conversion-group">
+        <div class="input-group">
+          <label for="de">⬇Converter de:</label>
+          <select id="de"></select>
+        </div>
+        
+        <div class="input-group">
+          <label for="para">⬆Para:</label>
+          <select id="para"></select>
+        </div>
+      </div>
 
-    <label for="para">Para:</label>
-    <select id="para"></select>
+      <input type="number" id="valor" placeholder="Digite o valor" step="any" />
+      <button onclick="converter()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12h6"></path>
+          <path d="M22 12h-6"></path>
+          <path d="M12 2v20"></path>
+          <path d="M16 6l-4-4-4 4"></path>
+          <path d="M8 18l4 4 4-4"></path>
+        </svg>
+        Converter
+      </button>
+    </div>
 
-    <input type="number" id="valor" placeholder="Digite o valor" />
-    <button onclick="converter()">Converter</button>
     <div id="resultado"></div>
+
+      <div class="how-to-use">
+        <h3>📌 Como Converter:</h3>
+        <ol>
+          <li>Selecione o tipo de medida (comprimento ou massa)</li>
+          <li>Escolha as unidades de origem e destino</li>
+          <li>Insira o valor e clique em converter!</li>
+        </ol>
+      </div>
+    </div>
+
+    
+
+    <!-- Área para banner inferior -->
+    <div class="ad-container" style="margin-top: 2rem;">
+      <!-- Insira o código do Adsense aqui -->
+    </div>
   </div>
+  <footer>
+    <p>© 2024 Conversor de Medidas - Desenvolvido por Ricardo Laranjeira</p>
+    <p>✉️ contato@conversormedidas.site | 📝 Termos de Uso | 🔒 Política de Privacidade</p>
+  </footer>
+
+  <!-- Script do Adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+   crossorigin="anonymous"></script>
 
   <script>
     const unidades = {
       comprimento: {
-        metro: 1,
-        centímetro: 0.01,
-        milímetro: 0.001,
-        quilômetro: 1000,
-        polegada: 0.0254,
-        pé: 0.3048,
-        jarda: 0.9144,
-        milha: 1609.34
+        METRO: 1,
+        CENTÍMETRO: 0.01,
+        MILÍMETRO: 0.001,
+        QUILÔMETRO: 1000,
+        POLEGADA: 0.0254,
+        PÉS: 0.3048,
+        JARDA: 0.9144,
+        MILHA: 1609.34
       },
       massa: {
-        grama: 1,
-        quilograma: 1000,
-        miligrama: 0.001,
-        tonelada: 1000000,
-        libra: 453.592,
-        onça: 28.3495
+        GRAMA: 1,
+        QUILOGRAMA: 1000,
+        MILIGRAMA: 0.001,
+        TONELADA: 1000000,
+        LIBRA: 453.592,
+        ONÇA: 28.3495
       }
     };
 
@@ -163,5 +307,6 @@
     categoriaSelect.addEventListener('change', atualizarUnidades);
     atualizarUnidades();
   </script>
+  
 </body>
 </html>

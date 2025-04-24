@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversor de Unidades</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: #000;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .container {
+        background-color: #1e1e1e;
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+      }
+      input, select {
+        background-color: #2c2c2c;
+        color: white;
+        border: 1px solid #555;
+      }
+      button {
+        background-color: #2196f3;
+      }
+      button:hover {
+        background-color: #0b7dda;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Conversor de Unidades</h1>
+    <label for="categoria">Categoria:</label>
+    <select id="categoria">
+      <option value="comprimento">Comprimento</option>
+      <option value="massa">Massa</option>
+    </select>
+
+    <label for="de">Converter de:</label>
+    <select id="de"></select>
+
+    <label for="para">Para:</label>
+    <select id="para"></select>
+
+    <input type="number" id="valor" placeholder="Digite o valor" />
+    <button onclick="converter()">Converter</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    const unidades = {
+      comprimento: {
+        metro: 1,
+        centímetro: 0.01,
+        milímetro: 0.001,
+        quilômetro: 1000,
+        polegada: 0.0254,
+        pé: 0.3048,
+        jarda: 0.9144,
+        milha: 1609.34
+      },
+      massa: {
+        grama: 1,
+        quilograma: 1000,
+        miligrama: 0.001,
+        tonelada: 1000000,
+        libra: 453.592,
+        onça: 28.3495
+      }
+    };
+
+    const categoriaSelect = document.getElementById('categoria');
+    const deSelect = document.getElementById('de');
+    const paraSelect = document.getElementById('para');
+
+    function atualizarUnidades() {
+      const categoria = categoriaSelect.value;
+      const opcoes = Object.keys(unidades[categoria]);
+      deSelect.innerHTML = '';
+      paraSelect.innerHTML = '';
+
+      opcoes.forEach(unidade => {
+        const option1 = document.createElement('option');
+        option1.value = unidade;
+        option1.textContent = unidade;
+        deSelect.appendChild(option1);
+
+        const option2 = document.createElement('option');
+        option2.value = unidade;
+        option2.textContent = unidade;
+        paraSelect.appendChild(option2);
+      });
+    }
+
+    function converter() {
+      const categoria = categoriaSelect.value;
+      const valor = parseFloat(document.getElementById('valor').value);
+      const de = deSelect.value;
+      const para = paraSelect.value;
+
+      if (isNaN(valor)) {
+        document.getElementById('resultado').textContent = 'Digite um valor válido';
+        return;
+      }
+
+      const base = valor * unidades[categoria][de];
+      const convertido = base / unidades[categoria][para];
+
+      document.getElementById('resultado').textContent = `${valor} ${de} = ${convertido.toFixed(4)} ${para}`;
+    }
+
+    categoriaSelect.addEventListener('change', atualizarUnidades);
+    atualizarUnidades();
+  </script>
+</body>
+</html>

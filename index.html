@@ -4,7 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Conversor preciso de medidas para comprimento e massa - Converta entre diversas unidades gratuitamente">
-  <title>📏 Conversor de Medidas | Converta Unidades Online</title>
+  <!-- Favicon padrão -->
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <!-- Para navegadores modernos -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+  <!-- Android Chrome -->
+  <link rel="manifest" href="/site.webmanifest">
+  <!-- Windows Tiles -->
+  <meta name="msapplication-TileColor" content="#4CAF50">
+  <meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+  <title>Conversor de Medidas | Converta Unidades Online</title>
   <style>
     :root {
       --primary-color: #4CAF50;
@@ -12,8 +24,8 @@
       --background-light: #ffffff;
       --text-dark: #333333;
       --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --feature-bg: #f8fff9; /* Nova variável para consistência */
-      --border-radius: 12px; /* Padronização de bordas */
+      --feature-bg: #f8fff9;
+      --border-radius: 12px;
     }
 
     body {
@@ -23,7 +35,7 @@
       margin: 0;
       padding: 20px;
       color: var(--text-dark);
-      line-height: 1.6; /* Melhora a legibilidade */
+      line-height: 1.6;
     }
 
     .container {
@@ -31,19 +43,18 @@
       padding: 2.5rem;
       border-radius: var(--border-radius);
       box-shadow: var(--shadow);
-      max-width: 800px; /* Aumentado para melhor layout */
+      max-width: 800px;
       margin: 40px auto;
       position: relative;
     }
 
-    /* Hero Section */
     .hero-section {
       text-align: center;
       margin-bottom: 2.5rem;
     }
 
     .hero-section h1 {
-      font-size: 2.5rem; /* Título mais destacado */
+      font-size: 2.5rem; 
       margin-bottom: 0.5rem;
     }
 
@@ -54,7 +65,6 @@
       margin: 0 auto;
     }
 
-    /* Description Section */
     .description {
       background: var(--feature-bg);
       padding: 2rem;
@@ -90,14 +100,12 @@
       margin-bottom: 1rem;
     }
 
-    /* Formulário */
     .conversion-form {
       display: grid;
       gap: 1.2rem;
       margin-top: 2rem;
     }
 
-    /* Ajustes de Responsividade */
     @media (max-width: 768px) {
       .container {
         padding: 1.5rem;
@@ -113,7 +121,6 @@
       }
     }
 
-    /* Dark Mode Ajustes */
     @media (prefers-color-scheme: dark) {
       :root {
         --background-light: #2d2d2d;
@@ -134,7 +141,6 @@
       }
     }
 
-    /* Mantido do original com ajustes */
     .ad-container {
       margin: 25px 0;
       padding: 20px;
@@ -145,7 +151,7 @@
 
     select, input {
       width: 100%;
-      padding: 14px 18px; /* Maior touch area */
+      padding: 14px 18px;
       border: 2px solid #e0e0e0;
       border-radius: var(--border-radius);
       font-size: 1rem;
@@ -181,7 +187,7 @@
       <h1>📏 Conversor de Medidas Online</h1>
       <p class="tagline">Conversão precisa e instantânea para unidades de comprimento e massa</p>
     </div>
-<!-- O formulário de conversão permanece aqui -->
+
     <div class="conversion-form">
       <label for="categoria">📦 Categoria:</label>
       <select id="categoria">

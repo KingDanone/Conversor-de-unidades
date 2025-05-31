@@ -129,7 +129,8 @@ body {
 }
 
 select, input {
-    width: 100%;
+    /* width: 100%; */
+    display: flex;
     padding: 14px 18px;
     border: 2px solid #e0e0e0;
     border-radius: var(--border-radius);
@@ -137,6 +138,10 @@ select, input {
     transition: all 0.3s ease;
     background: var(--background-light);
     color: var(--text-dark);
+}
+
+select{
+    width: 100%;
 }
 
 button {

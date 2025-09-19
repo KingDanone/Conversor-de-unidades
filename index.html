@@ -3,155 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Conversor preciso de medidas para comprimento e massa - Converta entre diversas unidades gratuitamente">
+  <meta name="description" content="Conversor de unidades online, rápido e gratuito. Converta comprimento, massa, temperatura, dados e mais.">
+  
+  <title>Conversor de Unidades | Online e Gratuito</title>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="author" content="Ricardo Laranjeira">
-  <meta name="msapplication-TileColor" content="#4CAF50">
-  <meta name="keywords" content="conversor, unidades, comprimento, massa, quilograma, metro, online, gratuito">
-  <meta name="msapplication-TileImage" content="/img/mstile-144x144.png">
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Ads -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7986079772991497"
      crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <title>Conversor de Medidas | Converta Unidades Online</title>
 </head>
 <body>
-  <div class="container">
-    <div class="hero-section">
-      <h1>📏 Conversor de Medidas Online</h1>
-      <p class="tagline">Conversão precisa e instantânea para unidades de comprimento e massa</p>
-    </div>
 
-    <div class="conversion-form">
-      <label for="categoria">📦 Categoria:</label>
-      <select id="categoria">
-        <option value="comprimento">Comprimento</option>
-        <option value="massa">Massa</option>
-      </select>
-
-      <div class="conversion-group">
-        <div class="input-group">
-          <label for="de">⬇Converter de:</label>
-          <select id="de"></select>
-        </div>
-        
-        <div class="input-group">
-          <label for="para">⬆Para:</label>
-          <select id="para"></select>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">ConversorDeUnidades</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="comprimento.html">Comprimento</a></li>
+            <li class="nav-item"><a class="nav-link" href="massa.html">Massa</a></li>
+            <li class="nav-item"><a class="nav-link" href="temperatura.html">Temperatura</a></li>
+            <li class="nav-item"><a class="nav-link" href="dados.html">Dados</a></li>
+          </ul>
         </div>
       </div>
+    </nav>
+  </header>
 
-      <input type="number" id="valor" placeholder="Digite o valor" step="any" />
-      <button onclick="converter()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 12h6"></path>
-          <path d="M22 12h-6"></path>
-          <path d="M12 2v20"></path>
-          <path d="M16 6l-4-4-4 4"></path>
-          <path d="M8 18l4 4 4-4"></path>
-        </svg>
-        Converter
-      </button>
+  <main class="container my-5">
+    <div class="text-center">
+      <h1 class="display-4">Conversor de Medidas Online</h1>
+      <p class="lead text-muted">Uma ferramenta rápida e precisa para todas as suas necessidades de conversão.</p>
     </div>
 
-    <div id="resultado"></div>
-
-      <div class="how-to-use">
-        <h3>📌 Como Converter:</h3>
-        <ol>
-          <li>Selecione o tipo de medida (comprimento ou massa)</li>
-          <li>Escolha as unidades de origem e destino</li>
-          <li>Insira o valor e clique em converter!</li>
-        </ol>
+    <div class="row mt-5 g-4">
+      <div class="col-md-6 col-lg-3">
+        <a href="comprimento.html" class="card h-100 text-center feature-card">
+          <div class="card-body">
+            <h2 class="display-4">📏</h2>
+            <h3 class="h5 card-title">Comprimento</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="massa.html" class="card h-100 text-center feature-card">
+          <div class="card-body">
+            <h2 class="display-4">⚖️</h2>
+            <h3 class="h5 card-title">Massa</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="temperatura.html" class="card h-100 text-center feature-card">
+          <div class="card-body">
+            <h2 class="display-4">🌡️</h2>
+            <h3 class="h5 card-title">Temperatura</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="dados.html" class="card h-100 text-center feature-card">
+          <div class="card-body">
+            <h2 class="display-4">💾</h2>
+            <h3 class="h5 card-title">Dados</h3>
+          </div>
+        </a>
       </div>
     </div>
+  </main>
 
-    <div class="ad-container" style="margin-top: 2rem;">
-      <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-7986079772991497"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
+  <footer class="bg-light text-center py-4 mt-auto">
+    <div class="container">
+      <p class="mb-1">&copy; 2024 Conversor de Medidas - Desenvolvido por Ricardo Laranjeira</p>
+      <p class="mb-0">
+        <a href="termos.html" class="text-decoration-none">Termos de Uso</a> | 
+        <a href="privacidade.html" class="text-decoration-none">Política de Privacidade</a>
+      </p>
     </div>
-  </div>
-  
-  <footer>
-    <p>© 2024 Conversor de Medidas - Desenvolvido por Ricardo Laranjeira</p>
-    <p>✉️ contato@conversormedidas.site | 📝 Termos de Uso | 🔒 Política de Privacidade</p>
   </footer>
 
-  <script>
-    const unidades = {
-      comprimento: {
-        METRO: 1,
-        CENTÍMETRO: 0.01,
-        MILÍMETRO: 0.001,
-        QUILÔMETRO: 1000,
-        POLEGADA: 0.0254,
-        PÉS: 0.3048,
-        JARDA: 0.9144,
-        MILHA: 1609.34
-      },
-      massa: {
-        GRAMA: 1,
-        QUILOGRAMA: 1000,
-        MILIGRAMA: 0.001,
-        TONELADA: 1000000,
-        LIBRA: 453.592,
-        ONÇA: 28.3495
-      }
-    };
-
-    const categoriaSelect = document.getElementById('categoria');
-    const deSelect = document.getElementById('de');
-    const paraSelect = document.getElementById('para');
-
-    function atualizarUnidades() {
-      const categoria = categoriaSelect.value;
-      const opcoes = Object.keys(unidades[categoria]);
-      deSelect.innerHTML = '';
-      paraSelect.innerHTML = '';
-
-      opcoes.forEach(unidade => {
-        const option1 = document.createElement('option');
-        option1.value = unidade;
-        option1.textContent = unidade;
-        deSelect.appendChild(option1);
-
-        const option2 = document.createElement('option');
-        option2.value = unidade;
-        option2.textContent = unidade;
-        paraSelect.appendChild(option2);
-      });
-    }
-
-    function converter() {
-      const categoria = categoriaSelect.value;
-      const valor = parseFloat(document.getElementById('valor').value);
-      const de = deSelect.value;
-      const para = paraSelect.value;
-
-      if (isNaN(valor)) {
-        document.getElementById('resultado').textContent = 'Digite um valor válido';
-        return;
-      }
-
-      const base = valor * unidades[categoria][de];
-      const convertido = base / unidades[categoria][para];
-
-      document.getElementById('resultado').textContent = `${valor} ${de} = ${convertido.toFixed(4)} ${para}`;
-    }
-
-    categoriaSelect.addEventListener('change', atualizarUnidades);
-    atualizarUnidades();
-  </script>
-  
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

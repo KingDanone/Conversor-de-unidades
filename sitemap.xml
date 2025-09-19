@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://conversordemedidas.site/index.html</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://conversordemedidas.site/comprimento.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://conversordemedidas.site/massa.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://conversordemedidas.site/temperatura.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://conversordemedidas.site/dados.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://conversordemedidas.site/termos.html</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://conversordemedidas.site/privacidade.html</loc>
+    <priority>0.50</priority>
+  </url>
+</urlset>

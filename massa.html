@@ -55,12 +55,15 @@
         <div class="card p-4 mt-4 shadow-sm">
           <input type="hidden" id="categoria" value="massa">
           
-          <div class="row g-3">
-            <div class="col-md-6">
+          <div class="row g-2 align-items-center">
+            <div class="col-5">
               <label for="de" class="form-label">De:</label>
               <select id="de" class="form-select form-select-lg"></select>
             </div>
-            <div class="col-md-6">
+            <div class="col-2 text-center">
+              <button class="btn btn-light btn-lg mt-4" onclick="inverterUnidades()">⇅</button>
+            </div>
+            <div class="col-5">
               <label for="para" class="form-label">Para:</label>
               <select id="para" class="form-select form-select-lg"></select>
             </div>

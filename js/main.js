@@ -102,6 +102,13 @@ function copiarResultado() {
     });
 }
 
+function inverterUnidades() {
+    const deValor = deSelect.value;
+    const paraValor = paraSelect.value;
+    deSelect.value = paraValor;
+    paraSelect.value = deValor;
+}
+
 if (categoriaEl.tagName === 'SELECT') {
     categoriaEl.addEventListener('change', atualizarUnidades);
 }

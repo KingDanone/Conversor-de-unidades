@@ -29,6 +29,17 @@ const unidades = {
         MEGABYTE: 8 * 1024 * 1024,
         GIGABYTE: 8 * 1024 * 1024 * 1024,
         TERABYTE: 8 * 1024 * 1024 * 1024 * 1024
+    },
+    volume: {
+        LITRO: 1,
+        MILILITRO: 0.001,
+        GALÃO_AMERICANO: 3.78541,
+        ONÇA_LÍQUIDA_AMERICANA: 0.0295735
+    },
+    velocidade: {
+        METROS_POR_SEGUNDO: 1,
+        QUILÔMETROS_POR_HORA: 3.6,
+        MILHAS_POR_HORA: 2.23694
     }
 };
 

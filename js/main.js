@@ -63,7 +63,7 @@ function converter() {
     const resultadoEl = document.getElementById('resultado');
 
     if (isNaN(valor)) {
-        resultadoEl.textContent = 'Digite um valor válido';
+        resultadoEl.innerHTML = '<span>Digite um valor válido</span>';
         return;
     }
 
@@ -71,36 +71,39 @@ function converter() {
 
     if (categoria === 'temperatura') {
         let tempBaseCelsius;
-        // Primeiro, converte tudo para Celsius
-        if (de === 'CELSIUS') {
-            tempBaseCelsius = valor;
-        } else if (de === 'FAHRENHEIT') {
-            tempBaseCelsius = (valor - 32) * 5 / 9;
-        } else if (de === 'KELVIN') {
-            tempBaseCelsius = valor - 273.15;
-        }
+        if (de === 'CELSIUS') tempBaseCelsius = valor;
+        else if (de === 'FAHRENHEIT') tempBaseCelsius = (valor - 32) * 5 / 9;
+        else if (de === 'KELVIN') tempBaseCelsius = valor - 273.15;
 
-        // Depois, converte de Celsius para a unidade de destino
-        if (para === 'CELSIUS') {
-            convertido = tempBaseCelsius;
-        } else if (para === 'FAHRENHEIT') {
-            convertido = (tempBaseCelsius * 9 / 5) + 32;
-        } else if (para === 'KELVIN') {
-            convertido = tempBaseCelsius + 273.15;
-        }
+        if (para === 'CELSIUS') convertido = tempBaseCelsius;
+        else if (para === 'FAHRENHEIT') convertido = (tempBaseCelsius * 9 / 5) + 32;
+        else if (para === 'KELVIN') convertido = tempBaseCelsius + 273.15;
     } else {
-        // Lógica original para outras categorias
         const base = valor * unidades[categoria][de];
         convertido = base / unidades[categoria][para];
     }
 
-    resultadoEl.textContent = `${valor} ${de} = ${convertido.toFixed(4)} ${para}`;
+    const resultadoTexto = `${valor} ${de} = ${convertido.toFixed(4)} ${para}`;
+    resultadoEl.innerHTML = `
+        <span id="resultado-texto">${resultadoTexto}</span>
+        <button id="btn-copiar" class="btn btn-secondary btn-sm ms-2" onclick="copiarResultado()">Copiar</button>
+    `;
 }
 
-// Event listener para o select de categoria (se existir)
+function copiarResultado() {
+    const texto = document.getElementById('resultado-texto').textContent;
+    navigator.clipboard.writeText(texto).then(() => {
+        const btn = document.getElementById('btn-copiar');
+        const originalText = btn.textContent;
+        btn.textContent = 'Copiado!';
+        setTimeout(() => {
+            btn.textContent = originalText;
+        }, 2000);
+    });
+}
+
 if (categoriaEl.tagName === 'SELECT') {
     categoriaEl.addEventListener('change', atualizarUnidades);
 }
 
-// Inicializa as unidades na carga da página
 atualizarUnidades();
